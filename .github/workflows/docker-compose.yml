@@ -26,10 +26,10 @@ jobs:
       
     - name: 🐳 Tag & Push Backend image
       run:  |
-        docker tag todo101-to-backend primfordatabase/todo-backend:lastest
-        docker push primfordatabase/todo-backend:lastest
+        docker tag todo101-to-backend primfordatabase/todo-backend:latest
+        docker push primfordatabase/todo-backend:latest
     
     - name: 🐳 Tag & Push Frontend image
       run:  |
-        docker tag todo101-to-frontend primfordatabase/todo-frontend:lastest
-        docker push primfordatabase/todo-frontend:lastest
+        docker tag todo101-to-frontend primfordatabase/todo-frontend:latest
+        docker push primfordatabase/todo-frontend:latest
