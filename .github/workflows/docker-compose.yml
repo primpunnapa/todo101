@@ -1,0 +1,35 @@
+name : Docker Compose CI
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    runs-on: ubantu-lastest
+
+    steps:
+    - name: 📥 Checkout respository
+      uses: actions/checkout@v3
+    
+    - name: 🔑 Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: primfordatabase
+        password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+    - name: 🛠 Build and tag Docker images
+      run:
+        docker compose -f docker-compose.yml build
+      
+    - name: 🐳 Tag & Push Backend image
+      run:  |
+        docker tag todo101-to-backend primfordatabase/todo-backend:lastest
+        docker push primfordatabase/todo-backend:lastest
+    
+    - name: 🐳 Tag & Push Frontend image
+      run:  |
+        docker tag todo101-to-frontend primfordatabase/todo-frontend:lastest
+        docker push primfordatabase/todo-frontend:lastest
