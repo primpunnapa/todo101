@@ -6,7 +6,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - /Users/primsmacbook/Desktop/todo101:/data/db
+      - /Users/primsmacbook/Desktop/todo101:/data/db mongo
   
   todo-backend:
     build: ./backend
