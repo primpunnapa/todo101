@@ -46,7 +46,7 @@ function App() {
 return (
   <div style={{ padding: 20 }}>
     <h1>📝 To-Do App</h1>
-
+    <h1>📝 To-Do App Version1.0</h1>
     <input
       value={text}
       onChange={(e) => setText(e.target.value)}
